@@ -28,3 +28,38 @@ class CorporateCustomer extends Customer {
         this.companyName = companyName;
     }
 }
+
+let products = [
+    { id: 1, name: "Acer Laptop", unitPrice: 15000 },
+    { id: 2, name: "Asus Laptop", unitPrice: 16000 },
+    { id: 3, name: "Hp Laptop", unitPrice: 13000 },
+    { id: 4, name: "Dell Laptop", unitPrice: 12000 },
+    { id: 5, name: "Casper Laptop", unitPrice: 17000 }
+]
+//listeleme
+console.log("<ul>")
+products.map(product => console.log(`<li>${product.name}</li>`))
+console.log("</ul>")
+
+console.log("----------------------------")
+
+products.map(product => {
+    console.log(`<li> ${product.id} </li>`)
+    console.log(`<li>${product.name}</li>`)
+})
+//filtreleme
+let filteredProduts = products.filter(product => product.unitPrice > 12000)
+console.log(filteredProduts)
+//toplamı
+let cartTotal = products.reduce((acc, product) => acc + product.unitPrice, 0)
+console.log(cartTotal)
+
+let cartTotal2 = products.
+    filter(product => product.unitPrice > 12000)
+    .map(p => {
+        p.unitPrice = p.unitPrice * 1.18
+        return p
+    })
+    .reduce((acc,p)=>acc+p.unitPrice,0)
+
+    console.log(cartTotal2)

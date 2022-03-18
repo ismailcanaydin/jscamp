@@ -1,14 +1,49 @@
 <html>
-  <head>
-    <link rel="shortcut icon" href="#" />
-    <title>JavaScript</title>
-    <script src="node_modules/traceur/bin/traceur.js"></script>
-    <script src="node_modules/es6-module-loader/dist/es6-module-loader-dev.js"></script>
-  </head>
-  <body>
-      <script>
-          System.import('src/oop/index.js');
-      </script> 
-      
-  </body>
+
+<head>
+  <link rel="shortcut icon" href="#" />
+  <title>JavaScript</title>
+  <script src="node_modules/traceur/bin/traceur.js"></script>
+  <script src="node_modules/es6-module-loader/dist/es6-module-loader-dev.js"></script>
+</head>
+
+<body>
+  <div>
+    <script>
+      System.import('src/components/userComponent.js');
+    </script>
+  </div>
+  -------------------------------------------------------------------------------
+  <P>Lütfen 5 ve 10 arasında bir rakam girin:</P>
+  <div>
+    <input id="demo" type="text">
+    <button type="button" onclick="myFunction()">Giriş Testi</button>
+
+    <p id="message"></p>
+
+    <script>
+      function myFunction() {
+        let message, x;
+        message = document.getElementById("message");
+        message.innerHTML = "";
+        x = document.getElementById("demo").value;
+        try {
+          if (x == "") throw "değer girilmedi.";
+          if (isNaN(x)) throw "değer rakam değil.";
+          if (x > 10) throw "değer büyük.";
+          if (x < 5) throw "değer küçük.";
+        } catch (error) {
+          message.innerHTML = "Girilen " + error;
+        } finally {
+          document.getElementById("demo").value = "";
+        }
+      }
+    </script>
+    -------------------------------------------------------------------------------
+
+
+
+  </div>
+</body>
+
 </html>

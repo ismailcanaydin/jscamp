@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <link rel="shortcut icon" href="#" />
+  <title>JavaScript</title>
+  <script src="node_modules/traceur/bin/traceur.js"></script>
+  <script src="node_modules/es6-module-loader/dist/es6-module-loader-dev.js"></script>
+</head>
+
+<body>
+  <p>Enter a number</p>
+
+  
+    <!-- <input id="numberBox" type="number" min="10" max="100" required> -->
+    <!-- <input id="numberBox" type="text" pattern="[A-Za-z]{3}" required> -->
+    <!-- <input id="numberBox" type="text" maxlength="5" required> -->
+    <input id="numberBox" type="text" value="abc" readonly required>
+    <button onclick="validate()">Send</button>
+
+    <p id="demo"></p>
+  
+  <script>
+    function validate() {
+
+      let numberEntered = document.getElementById("numberBox");
+
+      if (numberEntered.checkValidity()==false) {
+        document.getElementById("demo").innerHTML = numberEntered.validationMessage;
+      } else {
+        document.getElementById("demo").innerHTML = "Input Ok.";
+      }
+    }
+  </script>
+
+  <h1>The input pattern attribute</h1>
+
+  <p>A form with a password field that must contain 8 or more characters that are of at least one number, and one
+    uppercase and lowercase letter:</p>
+
+  <form action="/index.html">
+    <label for="pwd">Password:</label>
+    <input type="password" id="pwd" name="pwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+      title="En az bir sayı, bir büyük ve küçük harf ve en az 8 veya daha fazla karakter içermelidir ">
+    <input type="submit">
+  </form>
+</body>
+
+</html>
