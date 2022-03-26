@@ -1,17 +1,13 @@
-import { BaseLogger, ElasticLogger } from "../crossCuttingConcerns/logging/logger.js"
-import User from "../models/user.js"
-import { UserService } from "../services/userService.js"
+import UserCustomerAddModel from "../customer/userCustomerAddModel.js"
+import UserEmployeeAddModel from "../employee/userEmployeeAddModel.js"
+import CustomerService from "../services/customerService.js"
 
-console.log("User Component yüklendi.")
 
-let logger1 = new ElasticLogger()
-let userService = new UserService(logger1)
+let userEmployeeAddModel = new UserEmployeeAddModel
+let userCustomerAddModel = new UserCustomerAddModel()
 
-let user1 = new User(1,"İsmail Can","Aydın","Alanya")
-let user2 = new User(2,"Ayşegül","Yaman","Gazipaşa")
-userService.add(user1)
-userService.add(user2)
 
-console.log(userService.getById(2))
-console.log(userService.list())
+userCustomerAddModel.userCustomerAddModel()
+userEmployeeAddModel.userEmployeeAddModel()
 
+CustomerService.loadCustomer();
